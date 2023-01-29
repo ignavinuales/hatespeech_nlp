@@ -40,3 +40,5 @@ The goal of hate speech detection is to determine if communication contains hatr
 2. **Deploying REST API on Oracle Cloud**. The API was deployed on a personal Oracle instance (virtual machine on the cloud).
 3. **Building frontend**. I created a Web App for users to test the model and for me to monitor its performance in real life. As the Web App is a Minimum Viable Product (MVP), I built it using Streamlit and hosted it on Streamlit Cloud.
 4. **Model monitoring**. Text inputs from users using the Web App are stored in a SQL database on the Oracle Cloud. Users can also give feedback on the prediction, which is also stored in the database. Thus, I can monitor the model's performance and find weak points to retrain the LSTM model later.
+
+¹ Database : [Link to source database](https://huggingface.co/datasets/ucberkeley-dlab/measuring-hate-speech)
