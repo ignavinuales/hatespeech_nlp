@@ -1,8 +1,9 @@
+import nltk
 from nltk.corpus import stopwords
 from nltk.stem import SnowballStemmer
 import re
 from typing import List
-
+nltk.download('stopwords')
 
 def clean_data(text: str, inference_mode=False) -> str:
     """
