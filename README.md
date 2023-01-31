@@ -13,6 +13,7 @@ Main technologies used:
     .
     ├── Models         
         ├── LSTM_checkpoint.h5  # LSTM model used for inference
+    ├── Dockerfile              # Docker instructions to build image
     ├── cleaning.py             # python module that processes text before running a model inference
     ├── .env                    # used to store and hide credentials to connect to Oracle SQL Database
     ├── inference.py            # python module to run model inference
@@ -21,6 +22,7 @@ Main technologies used:
     ├── requirements.txt        # requirements file with all libraries/modules used for building the project
     ├── tokenizer.pickle        # pickle file that stores the tockenizer object used when training the model
     ├── webapp.py               # python module for running the front-end. Built on Streamlit framework
+    ├── requirements.py         # Requirements only for the Docker image
     └── README.md
 
 ## Motivation
@@ -36,9 +38,9 @@ The goal of hate speech detection is to determine if communication contains hatr
     a. cleaning.py: used for processing the input data. 
     b. inference.py: tokening the processed data, running the model, and getting the output.
     c. predict_api.py: where the main body (with POST request) from the FastAPI framework resides.
-
-2. **Deploying REST API on Oracle Cloud**. The API was deployed on a personal Oracle instance (virtual machine on the cloud).
-3. **Building frontend**. I created a Web App for users to test the model and for me to monitor its performance in real life. As the Web App is a Minimum Viable Product (MVP), I built it using Streamlit and hosted it on Streamlit Cloud.
-4. **Model monitoring**. Text inputs from users using the Web App are stored in a SQL database on the Oracle Cloud. Users can also give feedback on the prediction, which is also stored in the database. Thus, I can monitor the model's performance and find weak points to retrain the LSTM model later. The module to connect to and update the database are run on the same server as the frontend (Streamlit Cloud). 
+2. **Building Docker container**: The API was containerized using Docker. 
+3. **Deploying REST API on Oracle Cloud**. The API was deployed on a personal Oracle instance (virtual machine on the cloud).
+4. **Building frontend**. I created a Web App for users to test the model and for me to monitor its performance in real life. As the Web App is a Minimum Viable Product (MVP), I built it using Streamlit and hosted it on Streamlit Cloud.
+5. **Model monitoring**. Text inputs from users using the Web App are stored in a SQL database on the Oracle Cloud. Users can also give feedback on the prediction, which is also stored in the database. Thus, I can monitor the model's performance and find weak points to retrain the LSTM model later. The module to connect to and update the database are run on the same server as the frontend (Streamlit Cloud). 
 
 ¹ Database : [Link to source database](https://huggingface.co/datasets/ucberkeley-dlab/measuring-hate-speech)
